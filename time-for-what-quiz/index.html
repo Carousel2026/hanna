@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>你最想把時間留給什麼？｜Hanna</title>
+  <meta name="description" content="如果能少為生活忙一點，你最想多一點什麼？選一個有感的畫面，看看現在最想把時間留給什麼。">
+  <style>
+    :root{color-scheme:light;--paper:#f7f6f2;--ink:#292b29;--muted:#73766e;--accent:#4d5b43;--line:#dedfd5}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
+    main{max-width:740px;margin:auto;padding:26px 24px 65px}a{color:inherit;text-underline-offset:4px}nav{display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--muted);padding-bottom:35px}nav a{text-decoration:none}
+    h1{font-size:clamp(29px,6vw,45px);line-height:1.4;letter-spacing:-.04em;font-weight:650;margin:12px 0 20px}h2{font-size:26px;line-height:1.5;letter-spacing:-.025em;font-weight:650;margin:0 0 17px}h3{font-size:16px;margin:25px 0 7px}p{font-size:16px;margin:0 0 16px}
+    .eyebrow{font-size:12px;letter-spacing:.12em;color:#7e826e}.intro{max-width:530px;color:var(--muted)}.hero{display:block;width:min(100%,420px);height:auto;aspect-ratio:1;object-fit:contain;margin:24px auto 20px;border-radius:24px}
+    section{margin-top:40px;scroll-margin-top:24px}#choose{margin-top:24px}.hint{font-size:13px;color:#7a7e72}.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:23px 0}
+    button{font:inherit;cursor:pointer}.choice{text-align:left;padding:20px;border:1px solid var(--line);border-radius:20px;color:#30352b;background:#fff;transition:transform .2s,border-color .2s,background .2s}.choice:hover{transform:translateY(-2px);border-color:#67735b}.choice[aria-pressed=true]{background:#e5ebdc;border-color:#67735b}.choice b{font-size:18px;font-weight:600}.choice span{display:block;margin-top:4px;font-size:13px;color:#74796c;line-height:1.65}
+    :focus-visible{outline:3px solid #8a967c;outline-offset:5px}h2:focus:not(:focus-visible){outline:none}.results{margin-top:34px}.results:has(article:not([hidden])){margin-bottom:22px}article{background:#fff;padding:32px;border-radius:28px;scroll-margin-top:24px}article[hidden]{display:none}.result-tag{font-size:13px;color:#7b816e;margin-bottom:12px}.practice{background:#f0f3ea;padding:20px;border-radius:18px;margin:22px 0}.practice h3{margin-top:0}.practice p{margin-bottom:0}.reset{padding:7px 0;border:0;background:transparent;text-decoration:underline;text-underline-offset:4px;text-align:left;min-height:44px}
+    .note{font-size:12px;color:#85877e;margin-top:18px}.story{border-top:1px solid #dddeda;padding-top:36px}.story h2{margin-top:12px}.story p{color:#686d63}.button{display:inline-flex;align-items:center;justify-content:center;gap:20px;background:var(--accent);color:#fff;text-decoration:none;padding:13px 25px;border-radius:40px;margin:6px 0 15px;min-height:50px}.button:hover{background:#3c4934}footer{font-size:12px;color:#81857a;margin-top:42px;text-align:center}footer a{text-decoration:none}
+    @media(max-width:480px){main{padding:22px 20px 45px}article{padding:25px 22px}.choice{padding:17px 14px}.choice b{font-size:clamp(15px,4.1vw,17px)}h2{font-size:23px}.hero{width:100%}nav{font-size:12px;gap:12px}h1{font-size:30px}}
+    @media(max-width:360px){h1{font-size:26px}.choices{gap:10px}.choice{padding:16px 12px}.choice span{font-size:12px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.choice{transition:none}}
+  </style>
+</head>
+<body>
+<main id="top">
+  <nav aria-label="Hanna"><a href="https://www.instagram.com/_hannapang/">Hanna</a><span>親子・生活・自我理解</span></nav>
+  <header>
+    <div class="eyebrow">一個關於時間與陪伴的小選擇</div>
+    <h1>如果能少為生活忙一點，<br>你最想多一點什麼？</h1>
+    <p class="intro">有時候，忙著把每一天過好，<br>也會忘記問自己：現在最想把時間留給什麼？</p>
+  </header>
+  <img class="hero" src="assets/quiz-scenes.webp" width="1024" height="1024" alt="四個日常畫面：左上是休息的椅子與熱茶，右上是媽媽陪孩子畫畫，左下是閱讀學習的書桌，右下是準備出門的背包與鞋子" fetchpriority="high">
+  <section id="choose" aria-labelledby="choose-title">
+    <h2 id="choose-title" tabindex="-1">哪個畫面，讓你最想停一下？</h2>
+    <p class="hint">跟著第一個念頭選，點選後就能看解析</p>
+    <div class="choices" role="group" aria-label="選擇一個畫面">
+      <button class="choice" type="button" data-answer="A" aria-pressed="false" aria-controls="answer-A"><b>A｜安靜休息</b><span>好好喝完一杯熱茶</span></button>
+      <button class="choice" type="button" data-answer="B" aria-pressed="false" aria-controls="answer-B"><b>B｜陪伴家人</b><span>聽他把想說的話說完</span></button>
+      <button class="choice" type="button" data-answer="C" aria-pressed="false" aria-controls="answer-C"><b>C｜留時間學習</b><span>做一件想學很久的事</span></button>
+      <button class="choice" type="button" data-answer="D" aria-pressed="false" aria-controls="answer-D"><b>D｜自由出門</b><span>照自己的步調走走</span></button>
+    </div>
+  </section>
+  <section id="results" class="results" aria-label="你的選擇解析" aria-live="polite">
+    <article id="answer-A" aria-labelledby="title-A" hidden>
+      <div class="result-tag">你選了 A｜安靜休息</div>
+      <h2 id="title-A" tabindex="-1">你想安心休息一下</h2>
+      <p>選這個畫面，可能是最近真的有點累了。你想要一個不用趕、不必隨時回訊息的地方，能坐下來喝完一杯熱茶。</p>
+      <h3>你在意的生活餘裕</h3>
+      <p>對你來說，錢帶來的餘裕，可能包括把生活照顧好、替自己留一點緩衝。遇到事情時，不用馬上把原本的休息時間也拿去填滿。</p>
+      <div class="practice"><h3>今天可以試試</h3><p>先替自己留半小時不安排事情的時間，再看看哪些忙碌可以減少一點。</p></div>
+      <button class="reset hint" type="button" data-reset>重新選一個畫面 ↑</button>
+    </article>
+    <article id="answer-B" aria-labelledby="title-B" hidden>
+      <div class="result-tag">你選了 B｜陪伴家人</div>
+      <h2 id="title-B" tabindex="-1">你想把時間留給重要的人</h2>
+      <p>你想留給家人的，往往是看起來很普通的日常。能聽完孩子一個故事、一起吃頓飯，或只是坐在身邊。</p>
+      <h3>你在意的生活餘裕</h3>
+      <p>對你來說，收入也代表陪伴的選擇。你希望努力之後，有空回到在意的人身邊。</p>
+      <div class="practice"><h3>今天可以試試</h3><p>今天先留十分鐘，放下手機，把他想說的話聽完。</p></div>
+      <button class="reset hint" type="button" data-reset>重新選一個畫面 ↑</button>
+    </article>
+    <article id="answer-C" aria-labelledby="title-C" hidden>
+      <div class="result-tag">你選了 C｜留時間學習</div>
+      <h2 id="title-C" tabindex="-1">你想替自己多留一點可能</h2>
+      <p>你希望忙完之後，還有一點時間留給自己。翻一本書、學一樣想學很久的事，都能讓你感覺生活有新的可能。</p>
+      <h3>你在意的生活餘裕</h3>
+      <p>金錢對你的意義，可能是可以持續成長、保有換方向的空間。你想要更有底氣做選擇，也想知道自己還能走到哪裡。</p>
+      <div class="practice"><h3>今天可以試試</h3><p>把想學的事挑一件，先從一個很小的練習開始。</p></div>
+      <button class="reset hint" type="button" data-reset>重新選一個畫面 ↑</button>
+    </article>
+    <article id="answer-D" aria-labelledby="title-D" hidden>
+      <div class="result-tag">你選了 D｜自由出門</div>
+      <h2 id="title-D" tabindex="-1">你想找回自己決定的步調</h2>
+      <p>你嚮往的是能自己決定節奏的生活。想出門時有空去走走，想換個環境時，也有餘裕替自己安排。</p>
+      <h3>你在意的生活餘裕</h3>
+      <p>你希望金錢帶來的，可能是選擇空間。能決定把時間用在哪裡，也能在生活太擠的時候，替自己留一條出口。</p>
+      <div class="practice"><h3>今天可以試試</h3><p>先安排一段不用趕路的散步，看看什麼樣的步調，才讓你感覺舒服。</p></div>
+      <button class="reset hint" type="button" data-reset>重新選一個畫面 ↑</button>
+    </article>
+  </section>
+  <p class="note">這是一個整理當下偏好的直覺練習，沒有標準答案。選擇也可能隨著你的近況改變。</p>
+  <noscript><p>請開啟瀏覽器的 JavaScript，即可點選畫面查看解析。</p></noscript>
+  <section class="story" aria-labelledby="story-title">
+    <div class="eyebrow">認識 HANNA</div>
+    <h2 id="story-title">忙完之後，<br>也想有空陪在他身邊</h2>
+    <p>想多一點時間陪孩子，也常常會讓我們回頭想：現在的生活，有哪些地方可以慢慢調整？</p>
+    <p>Hanna 也曾在懷孕時為未來感到不安。後來，她從交易新手開始學習，慢慢走到能帶領新手的位置。成為媽媽後，她更在意陪伴孩子的時間，以及一家人的生活品質。</p>
+    <p>她是「教路人會交易的Hanna」。如果你也在想，接下來能為自己做些什麼，可以先看看她走過的路。</p>
+    <a class="button" href="https://carousel2026.github.io/hanna/hanna-story/"><span>看看Hanna故事</span><span aria-hidden="true">↗</span></a>
+  </section>
+  <footer><a href="https://www.instagram.com/_hannapang/">@_hannapang</a></footer>
+</main>
+<script>
+  (() => {
+    const keys = ['A','B','C','D'];
+    const buttons = [...document.querySelectorAll('[data-answer]')];
+    const articles = [...document.querySelectorAll('#results article')];
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function moveTo(element) {
+      element.focus({preventScroll:true});
+      element.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});
+    }
+    function show(key, scroll = false) {
+      const valid = keys.includes(key);
+      articles.forEach(el => el.hidden = !valid || el.id !== 'answer-' + key);
+      buttons.forEach(b => b.setAttribute('aria-pressed',String(valid && b.dataset.answer === key)));
+      if(valid && scroll) moveTo(document.getElementById('title-' + key));
+    }
+    buttons.forEach(button => button.addEventListener('click', () => {
+      history.replaceState(null,'','#answer-' + button.dataset.answer);
+      show(button.dataset.answer,true);
+    }));
+    document.querySelectorAll('[data-reset]').forEach(button => button.addEventListener('click', () => {
+      history.replaceState(null,'',location.pathname + location.search);
+      show(null);
+      moveTo(document.getElementById('choose-title'));
+    }));
+    function fromHash() {
+      const match = location.hash.match(/^#answer-([A-D])$/);
+      show(match ? match[1] : null,Boolean(match));
+    }
+    window.addEventListener('hashchange',fromHash);
+    fromHash();
+  })();
+</script>
+</body>
+</html>
