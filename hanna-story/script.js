@@ -160,3 +160,58 @@ if (dialog && typeof dialog.showModal === 'function') {
  if (breakpoint.addEventListener) breakpoint.addEventListener('change', closeOnResize);
  else if (breakpoint.addListener) breakpoint.addListener(closeOnResize);
 })();
+
+// Native swiping with optional arrow/keyboard navigation; no drag interception.
+(() => {
+ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+ const mobile = window.matchMedia('(max-width: 760px)');
+ document.querySelectorAll('.carousel-controls[data-carousel]').forEach(controls => {
+  const rail = document.getElementById(controls.dataset.carousel);
+  if (!rail) return;
+  const cards = Array.from(rail.children);
+  const previous = controls.querySelector('.carousel-prev');
+  const next = controls.querySelector('.carousel-next');
+  const count = controls.querySelector('.carousel-count');
+  let current = 0;
+  let pending = false;
+  const nearest = () => {
+   const inset = parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+   const left = rail.getBoundingClientRect().left + inset;
+   return cards.reduce((best, card, index) => Math.abs(card.getBoundingClientRect().left-left) < Math.abs(cards[best].getBoundingClientRect().left-left) ? index : best, 0);
+  };
+  const update = () => {
+   pending = false;
+   current = mobile.matches ? nearest() : 0;
+   previous.disabled = current === 0;
+   next.disabled = current === cards.length-1;
+   count.textContent = `${current+1} / ${cards.length}`;
+  };
+  const schedule = () => {
+   if (pending) return;
+   pending = true;
+   requestAnimationFrame(update);
+  };
+  const goTo = index => {
+   if (!mobile.matches) return;
+   const target = Math.max(0, Math.min(cards.length-1, index));
+   const inset = parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+   const left = rail.scrollLeft + cards[target].getBoundingClientRect().left - rail.getBoundingClientRect().left - inset;
+   rail.scrollTo({left, behavior:reduced.matches ? 'instant' : 'smooth'});
+  };
+  previous.addEventListener('click', () => goTo(nearest()-1));
+  next.addEventListener('click', () => goTo(nearest()+1));
+  rail.addEventListener('keydown', event => {
+   if (!mobile.matches || event.target !== rail) return;
+   const index = nearest();
+   const targets = {ArrowLeft:index-1, ArrowRight:index+1, Home:0, End:cards.length-1};
+   if (!(event.key in targets)) return;
+   event.preventDefault();
+   goTo(targets[event.key]);
+  });
+  rail.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule, {passive:true});
+  if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(rail);
+  controls.classList.add('is-ready');
+  update();
+ });
+})();

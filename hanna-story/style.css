@@ -482,3 +482,96 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline-color:#7190b2
  .course-summary strong{font-size:17px}
  .course-content{font-size:16px}
 }
+
+/* Mobile portrait introduction and an early, separate teaching photograph. */
+.mobile-identity,.story-photo-opening{display:none}
+@media(max-width:760px){
+ .hero{padding-block:28px 34px}
+ .mobile-identity{display:flex;align-items:center;gap:20px;margin:0 0 26px;min-width:0}
+ .identity-photo{position:relative;flex:0 0 104px;width:104px;height:104px;border-radius:25px;overflow:hidden;background:#e8ecef}
+ .identity-photo img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 40%;transform:none}
+ .identity-copy{min-width:0}
+ .identity-name{font-size:22px;font-weight:600;line-height:1.4;letter-spacing:-.025em}
+ .identity-role{font-size:12px;line-height:1.8;color:var(--muted);margin:8px 0 0;letter-spacing:0}
+ .hero-copy>.eyebrow{display:none}
+ .hero-copy h1{font-size:28px;line-height:1.5;text-wrap:pretty}
+ .hero-intro{margin-top:20px}
+ .hero-actions{margin-top:24px}
+ .story-section .section-heading h2{font-size:21px;line-height:1.6}
+ .story-photo-opening{display:block;margin:0 0 8px;border-radius:24px;overflow:hidden}
+ .story-photo-opening img{width:100%;height:220px;aspect-ratio:auto;object-fit:cover;object-position:50% 32%}
+ .story-photo-opening figcaption{padding:17px 20px 19px}
+ .story-photo-opening figcaption>span{font-size:11px;letter-spacing:.04em}
+ .story-photo-opening figcaption p{font-size:15px;font-weight:400;line-height:1.8;margin-top:6px}
+ .story-photo-later{display:none}
+ .story-copy p{font-size:16px;line-height:1.9}
+ .story-copy p+p{margin-top:22px}
+ .story-photo.street-proof img{width:100%;height:auto;max-height:320px;aspect-ratio:auto;object-fit:contain;background:#fff}
+}
+@media(max-width:350px){
+ .mobile-identity{gap:16px}
+ .identity-photo{flex-basis:96px;width:96px;height:96px;border-radius:23px}
+ .identity-name{font-size:21px}
+ .identity-role{font-size:11px}
+ .hero-copy h1{font-size:26px}
+ .story-photo-opening img{height:200px}
+}
+
+/* Photos keep their own reading space inside chapters 03 and 04. */
+.chapter-photo{margin:28px 0 6px;border-radius:24px;overflow:hidden;background:#fff}
+.chapter-photo img{width:100%;height:360px;object-fit:cover;object-position:50% 37%}
+.chapter-photo figcaption{padding:16px 22px 18px;color:var(--muted);font-size:14px;line-height:1.8}
+@media(max-width:760px){
+ .chapter-photo{margin:26px 0 2px;border-radius:22px}
+ .chapter-photo img{height:240px;object-position:50% 35%}
+ .chapter-photo figcaption{padding:14px 18px 16px;font-size:13px}
+}
+
+.chapter-photo.teaching-photo img{object-position:50% 20%}
+
+/* Compact social links stay clear of the brand on narrow screens. */
+.header-socials{display:flex;align-items:center;gap:6px;flex-shrink:0;margin-left:12px}
+.header-socials .social-link{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;border-radius:14px;color:var(--ink);transition:background-color .2s ease,box-shadow .2s ease}
+.header-socials .social-link:hover{background:rgba(79,105,136,.08)}
+.header-socials .social-link:focus-visible{outline:2px solid var(--accent,#4f6988);outline-offset:2px}
+.header-socials svg{display:block;width:25px;height:25px}
+.header-socials .social-line svg{width:28px;height:28px}
+@media(max-width:350px){.header-socials{gap:0;margin-left:8px}}
+@media(prefers-reduced-motion:reduce){.header-socials .social-link{transition:none}}
+
+/* Native mobile card rails: retain vertical page scrolling and desktop grids. */
+.carousel-controls{display:none}
+@media(max-width:760px){
+ .mobile-carousel{display:flex;gap:16px;align-items:stretch;width:100vw;max-width:none;margin-inline:calc((100% - 100vw)/2);padding:4px 20px 22px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .mobile-carousel::-webkit-scrollbar{display:none}
+ .mobile-carousel::after{content:"";flex:0 0 max(20px,calc(100vw - 476px))}
+ .mobile-carousel>article,.mobile-carousel>figure{flex:0 0 calc(100vw - 76px);max-width:420px;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;grid-column:auto;grid-row:auto}
+ .mobile-carousel>.reveal-pending{opacity:1;transform:none;transition:none}
+ .support-grid.mobile-carousel .support-card{display:flex;flex-direction:column;border-radius:26px;box-shadow:0 6px 16px rgba(0,0,0,.055)}
+ .support-grid.mobile-carousel .support-card:hover{transform:none}
+ .support-grid.mobile-carousel .support-copy{flex:1;order:-1;padding:24px 22px 20px}
+ .support-grid.mobile-carousel .support-copy h3{font-size:20px;line-height:1.5;margin:10px 0 14px}
+ .support-grid.mobile-carousel .support-copy p{font-size:16px;line-height:1.85}
+ .support-grid.mobile-carousel .resource-image{height:auto;flex:none;padding:0 18px 18px;background:transparent}
+ .support-grid.mobile-carousel .resource-image img{width:100%;height:180px;max-height:none;object-fit:contain;object-position:center;border-radius:16px;background:#eef1f5}
+ .classroom-grid.mobile-carousel figure{display:flex;flex-direction:column;background:#fff;border-radius:26px;box-shadow:0 6px 16px rgba(0,0,0,.055)}
+ .classroom-grid.mobile-carousel .image-button{height:auto;flex:none}
+ .classroom-grid.mobile-carousel img,.classroom-grid.mobile-carousel .classroom-main img{width:100%;height:auto;min-height:0;aspect-ratio:4/3;object-fit:cover}
+ .classroom-grid.mobile-carousel .image-button::after{display:none}
+ .classroom-grid.mobile-carousel figcaption{position:static;padding:20px 22px 23px;color:var(--ink)}
+ .classroom-grid.mobile-carousel figcaption>span{font-size:12px;color:var(--muted);line-height:1.6;letter-spacing:0}
+ .classroom-grid.mobile-carousel figcaption p{font-size:20px;line-height:1.5;margin-top:7px}
+ .carousel-controls.is-ready{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:0}
+ .carousel-count{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;letter-spacing:.08em}
+ .carousel-arrows{display:flex;gap:10px}
+ .carousel-arrows button{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:#e3e7ec;color:#3d4c60;transition:background-color .2s,opacity .2s}
+ .carousel-arrows button:hover:not(:disabled){background:#d7dfe9}
+ .carousel-arrows button:disabled{opacity:.3;cursor:default}
+ .carousel-arrows svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+ .mobile-carousel:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+}
+@media(prefers-reduced-motion:reduce){.carousel-arrows button{transition:none}}
+
+/* Keep Hanna's head visible in the replacement teaching photograph. */
+.chapter-photo.coaching-photo img{object-position:50% 18%}
+@media(max-width:760px){.chapter-photo.coaching-photo img{object-position:50% 20%}}
