@@ -215,3 +215,27 @@ if (dialog && typeof dialog.showModal === 'function') {
   update();
  });
 })();
+
+// Keep one LINE action visible when the original action enters the viewport.
+(() => {
+ const floating = document.querySelector('.floating-line-cta');
+ const original = document.querySelector('.start-copy a[href="https://line.me/R/ti/p/@hanna4134"]');
+ if (!floating || !original) return;
+ const setInlineVisible = visible => {
+  floating.classList.toggle('is-inline-visible', visible);
+  if (visible) {
+   floating.setAttribute('aria-hidden', 'true');
+   floating.setAttribute('tabindex', '-1');
+  } else {
+   floating.removeAttribute('aria-hidden');
+   floating.removeAttribute('tabindex');
+  }
+ };
+ const rect = original.getBoundingClientRect();
+ setInlineVisible(rect.top >= 0 && rect.bottom <= window.innerHeight);
+ if ('IntersectionObserver' in window) {
+  new IntersectionObserver(entries => {
+   entries.forEach(entry => setInlineVisible(entry.isIntersecting && entry.intersectionRatio >= .5));
+  }, {threshold:[0,.5]}).observe(original);
+ }
+})();

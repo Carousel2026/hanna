@@ -575,3 +575,18 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline-color:#7190b2
 /* Keep Hanna's head visible in the replacement teaching photograph. */
 .chapter-photo.coaching-photo img{object-position:50% 18%}
 @media(max-width:760px){.chapter-photo.coaching-photo img{object-position:50% 20%}}
+
+/* Persistent mobile LINE contact, with room for the device safe area. */
+.floating-line-cta{display:none}
+@media(max-width:760px){
+ body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+ .floating-line-cta{position:fixed;z-index:40;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:16px;width:calc(100% - 40px);max-width:420px;min-height:56px;padding:16px 20px;border-radius:999px;background:#4f6988;color:#fff;font-size:14px;font-weight:500;line-height:1.5;box-shadow:0 10px 32px rgba(39,58,82,.24),0 2px 8px rgba(39,58,82,.12);transition:opacity .2s ease,visibility .2s ease,background-color .2s ease;-webkit-tap-highlight-color:transparent}
+ .floating-line-cta>span{white-space:nowrap}
+ .floating-line-cta svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+ .floating-line-cta:hover{background:#405b7a}
+ .floating-line-cta:focus-visible{outline:3px solid #7190b2;outline-offset:4px;border-radius:999px}
+ .floating-line-cta.is-inline-visible{opacity:0;visibility:hidden;pointer-events:none}
+ body.dialog-open .floating-line-cta{display:none}
+}
+@media(max-width:350px){.floating-line-cta{width:calc(100% - 32px);padding-inline:16px;gap:10px;font-size:13px}.floating-line-cta svg{flex-basis:18px;width:18px;height:18px}}
+@media(prefers-reduced-motion:reduce){.floating-line-cta{transition:none}}
