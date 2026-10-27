@@ -590,3 +590,12 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline-color:#7190b2
 }
 @media(max-width:350px){.floating-line-cta{width:calc(100% - 32px);padding-inline:16px;gap:10px;font-size:13px}.floating-line-cta svg{flex-basis:18px;width:18px;height:18px}}
 @media(prefers-reduced-motion:reduce){.floating-line-cta{transition:none}}
+
+/* Compact frosted-glass action and swipe-only mobile cards. */
+@media(max-width:760px){
+ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+ .carousel-controls.is-ready{display:none}
+ .floating-line-cta{width:max-content;max-width:calc(100% - 40px);min-height:44px;padding:11px 18px;gap:10px;background:rgba(244,247,252,.68);color:#344b66;border:1px solid rgba(255,255,255,.78);-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);font-size:13px;box-shadow:0 5px 20px rgba(39,58,82,.13),inset 0 1px 0 rgba(255,255,255,.75)}
+ .floating-line-cta:hover{background:rgba(244,247,252,.84)}
+ .floating-line-cta svg{flex-basis:16px;width:16px;height:16px}
+}
